@@ -1,0 +1,34 @@
+return {
+	cmd = { 'lua-language-server' },
+	filetypes = { 'lua' },
+	root_markers = {
+		{ '.emmyrc.json', '.luarc.json', '.luarc.jsonc' },
+		{ '.luacheckrc', '.stylua.toml', 'stylua.toml', 'selene.toml', 'selene.yml' },
+		{ '.git' },
+	},
+	settings = {
+		Lua = {
+			runtime = {
+				version = 'LuaJIT',
+			},
+			codeLens = {
+				enable = true,
+			},
+			hint = {
+				enable = true,
+				semicolon = 'Disable',
+			},
+            completion = {
+                enable = true,
+            },
+            diagnostics = {
+                enable = true,
+                globals = { 'vim' },
+            },
+            workspace = {
+                library = { vim.env.VIMRUNTIME },
+                checkThirdParty = false,
+            },
+		},
+	},
+}
