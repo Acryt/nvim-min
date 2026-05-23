@@ -3,7 +3,7 @@ vim.pack.add({
 })
 
 require('blink.cmp').setup({
-    fuzzy = { implementation = "lua" },
+    fuzzy = { implementation = "prefer_rust_with_warning" },
     signature = { enabled = true },
     keymap = {
         preset = "default",
