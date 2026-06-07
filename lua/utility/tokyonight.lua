@@ -3,5 +3,5 @@ vim.pack.add({
 })
 
 require('tokyonight').load({
-	style = "night", -- "storm", "night", "day"
+	style = 'night',
 })
