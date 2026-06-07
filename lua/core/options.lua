@@ -5,27 +5,20 @@ local function set_options(opts)
 end
 
 set_options({
-    -- Номера строк, курсор
     number = true,
     relativenumber = true,
-    -- cursorline = true,
-    -- Кодировка
     encoding = 'utf-8',
-    -- fileencoding = 'utf-8'
-    -- Копирование вставка
+    fileencoding = 'utf-8',
     clipboard = 'unnamedplus',
-    -- Базовые настройки отступов
-    autoindent = true,  -- Копирует отступ с предыдущей строки
-    smartindent = true, -- "Умные" отступы
-    winborder = "rounded",
-    -- Использование пробелов вместо табов
-    expandtab = true,   -- Преобразует Tab в пробелы
+    autoindent = true,
+    smartindent = true,
+    winborder = 'rounded',
+    expandtab = true,
     tabstop = 4,
     softtabstop = 4,
     shiftwidth = 4,
-    -- Перенос строк
     wrap = false,
     linebreak = false,
 })
 
--- print("Options loaded")
+-- print('Options loaded')

@@ -7,12 +7,12 @@ require('fyler').setup({
         finder = {
             close_on_select = false,
             default_explorer = true,
-            follow_current_file = "<boolean>",
+            follow_current_file = '<boolean>',
             watcher = {
                 enabled = true,
             },
             win = {
-                kind = 'float', -- или "split_left"
+                kind = 'float',
                 kinds = {
                 }
             },
