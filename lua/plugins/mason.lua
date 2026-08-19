@@ -4,4 +4,6 @@ vim.pack.add({
 
 require('mason').setup({})
 
-vim.keymap.set('n', '<leader>m', '<cmd>Mason<cr>', { desc = 'Mason' })
+vim.keymap.set('n', '<leader>m', '<cmd>Mason<CR>', { desc = 'Mason' })
+
+-- vim.env.PATH = vim.fn.stdpath('data') .. '/mason/bin:' .. vim.env.PATH

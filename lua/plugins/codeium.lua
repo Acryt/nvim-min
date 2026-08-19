@@ -5,7 +5,7 @@ vim.pack.add({
 require('codeium').setup({
     enable_cmp_source = false, -- Отключаем интеграцию с nvim-cmp
     virtual_text = {
-        enabled = true, -- Включаем отображение подсказки прямо под курсором
+        enabled = false,        -- Включаем отображение подсказки прямо под курсором
     },
 })
 vim.keymap.set('i', '<C-g>', function()

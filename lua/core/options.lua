@@ -1,13 +1,7 @@
-local function set_options(opts)
-    for key, value in pairs(opts) do
-        vim.opt[key] = value
-    end
-end
-
-set_options({
+local opts = {
     number = true,
     relativenumber = true,
-    encoding = 'utf-8',
+    -- encoding = 'utf-8',
     fileencoding = 'utf-8',
     clipboard = 'unnamedplus',
     autoindent = true,
@@ -19,6 +13,15 @@ set_options({
     shiftwidth = 4,
     wrap = false,
     linebreak = false,
-})
+    mouse = 'a',
+    numberwidth = 2,
 
--- print('Options loaded')
+    hidden = true,
+    scrolloff = 4,
+    termguicolors = true,
+    signcolumn = 'yes',
+}
+
+for key, value in pairs(opts) do
+    vim.opt[key] = value
+end

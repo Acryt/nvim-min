@@ -1,0 +1,44 @@
+vim.pack.add({
+    'https://github.com/stevearc/conform.nvim'
+})
+
+require('conform').setup({
+    formatters_by_ft = {
+        lua = { 'stylua' },
+        javascript = { 'prettier' },
+        javascriptreact = { 'prettier' },
+        typescript = { 'prettier' },
+        typescriptreact = { 'prettier' },
+    },
+    formatters = {
+        stylua = {
+            prepend_args = function()
+                local args = {
+                    "--indent-type", vim.opt.expandtab:get() and "Spaces" or "Tabs",
+                    "--indent-width", tostring(vim.opt.shiftwidth:get()),
+                }
+                return args
+            end,
+        },
+        prettier = {
+            prepend_args = function()
+                return {
+                    "--tab-width", tostring(vim.opt.shiftwidth:get()),
+                    "--use-tabs", vim.opt.expandtab:get() and "false" or "true",
+                }
+            end,
+        },
+    }
+})
+
+vim.api.nvim_create_user_command("Format", function(args)
+    local range = nil
+    if args.count ~= -1 then
+        local end_line = vim.api.nvim_buf_get_lines(0, args.line2 - 1, args.line2, true)[1]
+        range = {
+            start = { args.line1, 0 },
+            ["end"] = { args.line2, end_line:len() },
+        }
+    end
+    require("conform").format({ async = true, lsp_format = "fallback", range = range })
+end, { range = true })
